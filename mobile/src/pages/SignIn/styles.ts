@@ -53,37 +53,7 @@ const styles = StyleSheet.create({
   },
 
   inputGroup: {
-    borderRadius: 8,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: '#E6E6F0',
     marginVertical: 24,
-  },
-
-  divider: {
-    height: 1,
-    width: '100%',
-    backgroundColor: '#E6E6F0',
-  },
-
-  inputBlock: {},
-
-  input: {
-    flex: 1,
-    height: 54,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    paddingHorizontal: 16,
-  },
-
-  focusedInput: {
-    position: 'absolute',
-    left: 0,
-    zIndex: 1,
-    height: 40,
-    width: 2,
-    borderRadius: 5,
-    backgroundColor: '#8257E5',
   },
 
   checkboxLabel: {

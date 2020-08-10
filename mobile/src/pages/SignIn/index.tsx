@@ -6,7 +6,6 @@ import {
   Text,
   ImageBackground,
   Image,
-  TextInput,
   KeyboardAvoidingView,
   Dimensions,
 } from 'react-native';
@@ -16,13 +15,15 @@ import logoImg from '../../assets/images/logo-big.png';
 import checkboxIcon from '../../assets/images/icons/checkbox.png';
 import checkboxCheckedIcon from '../../assets/images/icons/checkbox-checked.png';
 
-import styles from './styles';
 import useAuth from '../../contexts/auth';
+
+import { Input, InputGroup } from '../../components/Form';
+
+import styles from './styles';
 
 const SignIn: React.FC = () => {
   const [formValid, setFormValid] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
-  const [focused, setFocused] = useState<string | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -64,35 +65,25 @@ const SignIn: React.FC = () => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.inputGroup}>
-          <View style={styles.row}>
-            <View style={focused === 'email' ? styles.focusedInput : {}} />
-            <TextInput
-              value={email}
-              onChangeText={setEmail}
-              style={styles.input}
-              placeholder="E-mail"
-              placeholderTextColor="#c1bccc"
-              onFocus={() => setFocused('email')}
-              onBlur={() => setFocused(null)}
-            />
-          </View>
+        <InputGroup style={styles.inputGroup}>
+          <Input
+            value={email}
+            onChangeText={setEmail}
+            label="E-mail"
+            labelKind="floating"
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
 
-          <View style={styles.divider} />
-
-          <View style={styles.row}>
-            <View style={focused === 'password' ? styles.focusedInput : {}} />
-            <TextInput
-              value={password}
-              onChangeText={setPassword}
-              style={styles.input}
-              placeholder="Senha"
-              placeholderTextColor="#c1bccc"
-              onFocus={() => setFocused('password')}
-              onBlur={() => setFocused(null)}
-            />
-          </View>
-        </View>
+          <Input
+            value={password}
+            onChangeText={setPassword}
+            label="password"
+            labelKind="floating"
+            autoCapitalize="none"
+            secureTextEntry
+          />
+        </InputGroup>
 
         <View style={styles.row}>
           <CheckBox
