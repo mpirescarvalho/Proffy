@@ -9,7 +9,9 @@ import {
 } from 'react-native';
 import ViewPager from '@react-native-community/viewpager';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, StackActions } from '@react-navigation/native';
+
+import api from '../../services/api';
 
 import backIcon from '../../assets/images/icons/back-in-light.png';
 
@@ -49,7 +51,14 @@ const SignUp: React.FC = () => {
     }
   }
 
-  function handleSubmitSignUp() {}
+  async function handleSubmitSignUp() {
+    await api.post('users', {
+      name: `${name.trim()} ${lastName.trim()}`,
+      email,
+      password,
+    });
+    navigation.dispatch(StackActions.replace('SignUpSuccess'));
+  }
 
   return (
     <View style={styles.container}>
