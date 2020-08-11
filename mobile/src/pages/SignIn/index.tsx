@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Dimensions,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import loginBgImg from '../../assets/images/login-background.png';
 import logoImg from '../../assets/images/logo-big.png';
@@ -29,6 +30,8 @@ const SignIn: React.FC = () => {
 
   const { signIn } = useAuth();
 
+  const { navigate } = useNavigation();
+
   let ScreenHeight = Dimensions.get('window').height;
 
   useEffect(() => {
@@ -37,6 +40,10 @@ const SignIn: React.FC = () => {
 
   function handleSignIn() {
     signIn(email, password, checkbox);
+  }
+
+  function handleNewAccountClick() {
+    navigate('SignUp');
   }
 
   return (
@@ -60,7 +67,7 @@ const SignIn: React.FC = () => {
         <View style={styles.row}>
           <Text style={styles.bodyTitle}>Fazer login</Text>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleNewAccountClick}>
             <Text style={styles.signUpButtonText}>Criar uma conta</Text>
           </TouchableOpacity>
         </View>
@@ -78,7 +85,7 @@ const SignIn: React.FC = () => {
           <Input
             value={password}
             onChangeText={setPassword}
-            label="password"
+            label="Senha"
             labelKind="floating"
             autoCapitalize="none"
             secureTextEntry

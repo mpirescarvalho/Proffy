@@ -19,6 +19,7 @@ interface InputProps extends TextInputProps {
   label: string;
   labelKind?: 'placeholder' | 'floating' | 'outside';
   noBorder?: boolean;
+  inputRef?: React.RefObject<TextInput>;
 }
 
 //TODO: use animation for floating label
@@ -31,9 +32,10 @@ const Input: React.FC<InputProps> = ({
   onChangeText,
   labelKind = 'placeholder',
   noBorder,
+  inputRef: inputRefProp,
   ...rest
 }) => {
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = inputRefProp || useRef<TextInput>(null);
   const [internalValue, setInternalValue] = useState(value ? value : '');
   const [focused, setFocused] = useState(false);
   const [floating, setFloating] = useState(false);
