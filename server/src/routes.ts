@@ -18,6 +18,7 @@ routes.post('/classes', classesController.create);
 routes.get('/connections', connectionController.index);
 routes.post('/connections', connectionController.create);
 
+routes.get('/users/:id', userController.show);
 routes.post('/users', userController.create);
 
 routes.post('/session', sessionController.create);
