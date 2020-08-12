@@ -3,22 +3,68 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F0F0F7',
+    justifyContent: 'center',
+  },
+
+  bannerContainer: {
+    flex: 1,
+    padding: 40,
     backgroundColor: '#8257e5',
+  },
+
+  bodyContainer: {
+    flex: 1,
     justifyContent: 'center',
     padding: 40,
   },
 
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+
+  profile: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  profileName: {
+    marginLeft: 16,
+    fontFamily: 'Poppins_400Regular',
+    fontWeight: '500',
+    fontSize: 12,
+    color: '#d4c2ff',
+  },
+
+  profileImg: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+
+  logoutButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    backgroundColor: '#774DD6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   banner: {
+    flex: 1,
     width: '100%',
     resizeMode: 'contain',
   },
 
   title: {
     fontFamily: 'Poppins_400Regular',
-    color: '#FFF',
+    color: '#6A6180',
     fontSize: 20,
     lineHeight: 30,
-    marginTop: 80,
   },
 
   titleBold: {
@@ -56,7 +102,7 @@ const styles = StyleSheet.create({
 
   totalConnections: {
     fontFamily: 'Poppins_400Regular',
-    color: '#d4c2ff',
+    color: '#9C98A6',
     fontSize: 12,
     lineHeight: 20,
     maxWidth: 140,
