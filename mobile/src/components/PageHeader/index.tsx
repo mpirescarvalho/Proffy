@@ -9,13 +9,15 @@ import logoImg from '../../assets/images/logo.png';
 import styles from './styles';
 
 interface PageHeaderProps {
-  title: string;
+  title?: string;
+  page?: string;
   headerRight?: ReactNode;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   headerRight,
+  page,
   children,
 }) => {
   const { navigate } = useNavigation();
@@ -27,19 +29,43 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
-        <BorderlessButton onPress={handleGoBack}>
-          <Image source={backIcon} resizeMode="contain" />
-        </BorderlessButton>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+          }}
+        >
+          <BorderlessButton onPress={handleGoBack}>
+            <Image source={backIcon} resizeMode="contain" />
+          </BorderlessButton>
+        </View>
 
-        <Image source={logoImg} resizeMode="contain" />
+        {page && <Text style={styles.pageText}>{page}</Text>}
+
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+          }}
+        >
+          <Image source={logoImg} resizeMode="contain" />
+        </View>
       </View>
 
-      <View style={styles.header}>
-        <Text style={styles.title}>{title}</Text>
-        {headerRight}
-      </View>
+      {(children || title) && (
+        <View style={styles.body}>
+          {title && (
+            <View style={styles.header}>
+              <Text style={styles.title}>{title}</Text>
+              {headerRight}
+            </View>
+          )}
 
-      {children}
+          {children}
+        </View>
+      )}
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 
@@ -36,6 +36,10 @@ const Landing: React.FC = () => {
     navigate('Study');
   }
 
+  function handleNavigateToProfile() {
+    navigate('Profile');
+  }
+
   function handleSignOut() {
     signOut();
   }
@@ -44,7 +48,7 @@ const Landing: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.bannerContainer}>
         <View style={styles.header}>
-          <View style={styles.profile}>
+          <RectButton style={styles.profile} onPress={handleNavigateToProfile}>
             <Image
               resizeMode="contain"
               style={styles.profileImg}
@@ -53,7 +57,7 @@ const Landing: React.FC = () => {
               }
             />
             <Text style={styles.profileName}>{user?.name}</Text>
-          </View>
+          </RectButton>
           <RectButton onPress={handleSignOut} style={styles.logoutButton}>
             <Image resizeMode="contain" source={logoutIcon} />
           </RectButton>
