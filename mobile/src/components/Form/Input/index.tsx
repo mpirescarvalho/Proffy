@@ -20,6 +20,7 @@ interface InputProps extends TextInputProps {
   labelKind?: 'placeholder' | 'floating' | 'outside';
   noBorder?: boolean;
   inputRef?: React.RefObject<TextInput>;
+  textArea?: boolean;
 }
 
 //TODO: use animation for floating label
@@ -33,6 +34,7 @@ const Input: React.FC<InputProps> = ({
   labelKind = 'placeholder',
   noBorder,
   inputRef: inputRefProp,
+  textArea,
   ...rest
 }) => {
   const inputRef = inputRefProp || useRef<TextInput>(null);
@@ -53,7 +55,14 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <View style={[styles.container, containerStyle]}>
-      {focused && <View style={styles.focusIndicator} />}
+      {focused && (
+        <View
+          style={[
+            styles.focusIndicator,
+            labelKind === 'outside' && styles.focusIndicatorOutsideLabel,
+          ]}
+        />
+      )}
       {labelKind === 'outside' && (
         <Text style={styles.outsideLabel}>{label}</Text>
       )}
@@ -71,6 +80,7 @@ const Input: React.FC<InputProps> = ({
           styles.input,
           noBorder && styles.noBorder,
           labelKind === 'floating' && floating ? styles.inputFloating : {},
+          textArea && styles.textArea,
           inputStyle,
         ]}
         value={internalValue}
@@ -79,6 +89,8 @@ const Input: React.FC<InputProps> = ({
         onBlur={() => setFocused(false)}
         placeholder={labelKind === 'placeholder' ? label : undefined}
         placeholderTextColor="#9C98A6"
+        multiline={!!textArea}
+        numberOfLines={!!textArea ? 20 : 1}
         {...rest}
       />
     </View>

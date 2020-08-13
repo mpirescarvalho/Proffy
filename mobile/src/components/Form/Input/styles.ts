@@ -21,6 +21,13 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
 
+  textArea: {
+    height: 360,
+    justifyContent: 'flex-start',
+    textAlignVertical: 'top',
+    padding: 16,
+  },
+
   focusIndicator: {
     position: 'absolute',
     left: 0,
@@ -31,7 +38,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#8257E5',
   },
 
-  outsideLabel: {},
+  focusIndicatorOutsideLabel: {
+    top: 32,
+  },
+
+  outsideLabel: {
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 12,
+    color: '#9C98A6',
+    marginBottom: 8,
+  },
 
   floatingLabel: {
     position: 'absolute',

@@ -45,6 +45,67 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#D4C2FF',
   },
+
+  scroll: {
+    marginTop: -80,
+  },
+
+  form: {
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#E6E6F0',
+    padding: 24,
+    alignItems: 'stretch',
+    overflow: 'hidden',
+  },
+
+  sectionTitle: {
+    fontFamily: 'Archivo_600SemiBold',
+    fontSize: 20,
+    fontWeight: '500',
+    color: '#32264D',
+    paddingBottom: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E6E6F0',
+    marginBottom: 8,
+  },
+
+  inputContainer: {
+    marginTop: 16,
+  },
+
+  input: {
+    backgroundColor: '#FAFAFC',
+    borderWidth: 1,
+    borderColor: '#E6E6F0',
+  },
+
+  footer: {
+    height: 105,
+    backgroundColor: '#FAFAFC',
+    marginHorizontal: -24,
+    marginBottom: -24,
+    marginTop: 24,
+    padding: 24,
+    borderTopWidth: 1,
+    borderTopColor: '#E6E6F0',
+  },
+
+  saveButton: {
+    flex: 1,
+    height: 56,
+    borderRadius: 8,
+    backgroundColor: '#04D361',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  saveButtonText: {
+    fontFamily: 'Archivo_600SemiBold',
+    fontSize: 16,
+    color: '#fff',
+  },
 });
 
 export default styles;

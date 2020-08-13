@@ -3,6 +3,7 @@ import React from 'react';
 import { AppLoading } from 'expo';
 import {
   Archivo_400Regular,
+  Archivo_600SemiBold,
   Archivo_700Bold,
   useFonts,
 } from '@expo-google-fonts/archivo';
@@ -18,6 +19,7 @@ export default function App() {
   let [fontsLoaded] = useFonts({
     Archivo_400Regular,
     Archivo_700Bold,
+    Archivo_600SemiBold,
     Poppins_400Regular,
     Poppins_600SemiBold,
   });
